@@ -1,7 +1,8 @@
 # "For the sake of timestamp"
 
 ## TLDR Recommendation
-> Use `TIMESTAMPTZ` instead of `TIMESTAMP` as encoding time zone data is valuable. But always use set session time zone to UTC either via config or upon establishing DB connection. This allows users to worry less about losing time zone information if you have logic that might not expect return containing time zone offset from database.
+> Use `TIMESTAMPTZ` instead of `TIMESTAMP` as encoding time zone data is valuable. But always ensure session time zone is using UTC either via config or calling `SET TIME ZONE 'UTC';`
+upon establishing DB connection. This allows users to worry less about losing time zone information if you have implementations that pass tz offset or don't expect timestamp to contain time zone offset.
 
 ## Background
 
